@@ -1,38 +1,15 @@
 import React from "react";
-import Snackbar from "@material-ui/core/Snackbar";
-import MuiAlert from "@material-ui/lab/Alert";
 import PropTypes from 'prop-types';
 
 export function BabelSnackBar(properties) {
   const { message, severity, ...materialPropsForErrorSnack } = properties;
-  const materialProps = properties;
-  const vertical = "top",
-    horizontal = "right";
 
-  function Alert(props) {
-    return <MuiAlert elevation={6} variant="filled" {...props} />;
-  }
-
-  return message instanceof Array ? (
-    <Snackbar
-      {...materialPropsForErrorSnack}
-      anchorOrigin={{ vertical, horizontal }}
-      autoHideDuration={6000}
-    >
-      <Alert severity={severity ? severity : "error"} {...materialPropsForErrorSnack}>
-        {message.map((message, index) => {
-          return <p>{message.descriptions}</p>;
-        })}
-      </Alert>
-    </Snackbar>
-  ) : (
-    <Snackbar
-      {...materialProps}
-      anchorOrigin={{ vertical, horizontal }}
-      autoHideDuration={6000}
-    >
-      <Alert {...materialProps}>{message}</Alert>
-    </Snackbar>
+  return (
+    <div>
+      <p>
+        {message}
+      </p>
+    </div>
   );
 }
 
